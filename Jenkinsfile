@@ -1,25 +1,27 @@
-pipeline{
-    
-     agent any
+pipeline {
+    agent any
 
-     environment {
+    environment {
         DIRECTORY_PATH = "${WORKSPACE}"
         TESTING_ENVIRONMENT = "TestingEnvironment"
         PRODUCTION_ENVIRONMENT = "ASAD" // Your production environment name
     }
-    stage('Build') {
-        steps {
-            echo "Building..."
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building..."
+            }
         }
-    }
-    stage('Test') {
-        steps {
-            echo "Testing..."
+        stage('Test') {
+            steps {
+                echo "Testing..."
+            }
         }
-    }
-    stage('Deploy') {
-        steps {
-            echo "Deploy..."
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
+            }
         }
     }
 }
