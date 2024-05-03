@@ -1,23 +1,28 @@
 pipeline{
-
+    
      agent any
-        stage('Build') {
-            steps {
-                // Build code using Maven
-                echo "Building..."
-            }
+
+     environment {
+        DIRECTORY_PATH = "${WORKSPACE}"
+        TESTING_ENVIRONMENT = "TestingEnvironment"
+        PRODUCTION_ENVIRONMENT = "ASAD" // Your production environment name
+    }
+
+    stage('Build') {
+        steps {
+            echo "Building..."
         }
-        stage('Test') {
-            steps {
-                // Run tests
-                echo "Test..."
-            }
+    }
+
+    stage('Test') {
+        steps {
+            echo "Testing..."
         }
-        stage('Deploy') {
-            steps {
-                // Deploy code (example: to AWS EC2)
-                echo "Deploying..."
-            }
+    }
+
+    stage('Deploy') {
+        steps {
+            echo "Deploy..."
         }
     }
 }
