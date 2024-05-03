@@ -12,6 +12,13 @@ pipeline {
             steps {
                 echo "Building..."
             }
+            post{
+                always{
+                    mail to: "mubeenmuhammad098@gmail.com",
+                    subject: "Build Status Email",
+                    body: "Build log attached!"
+                }
+            }
         }
         stage('Test') {
             steps {
